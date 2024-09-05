@@ -4,15 +4,12 @@ name: "jaffle_shop"
 version: "3.0.0"
 require-dbt-version: ">=1.5.0"
 
-dbt-cloud:
-  project-id: 275557 # Put your project id here
-
-profile: default # Put your profile here
+profile: 'training_demo'
 
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["data-tests"]
-seed-paths: ["seeds"]
+seed-paths: ["seeds", "jaffle-data"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
@@ -26,11 +23,23 @@ vars:
 
 seeds:
   jaffle_shop:
+    +enabled: false
+    +database: MARUIZ_BRONZE_DB 
     +schema: raw
 
 models:
   jaffle_shop:
     staging:
-      +materialized: view
+      +materialized: table
+      +database: MARUIZ_SILVER_DB
+      +schema: staging
+#      +persist_docs:
+#        relation: true
+#        cloumns: true
     marts:
       +materialized: table
+      +database: MARUIZ_GOLD_DB 
+      +schema: marts
+      +persist_docs:
+        relation: true
+        cloumns: true

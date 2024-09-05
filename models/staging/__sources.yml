@@ -3,6 +3,7 @@ version: 2
 sources:
   - name: ecom
     schema: raw
+    database: MARUIZ_BRONZE_DB
     description: E-commerce data for the Jaffle Shop
     freshness:
       warn_after:
