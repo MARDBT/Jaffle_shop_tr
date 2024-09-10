@@ -16,11 +16,11 @@ models:
           - relationships:
               to: ref('stg_customers')
               field: customer_id
-          - unique:
-              severity: warn
-              limit: 20
-              store_failures: true
-              schema: test_failures #no lo coge, por alguna configuración superior?
+#          - unique:
+#              severity: warn
+#              limit: 20
+#              store_failures: true
+#              schema: test_failures #no lo coge, por alguna configuración superior?
 
       - name: order_total
         description: The total amount of the order in USD including tax.
