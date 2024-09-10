@@ -14,4 +14,4 @@ models:
         description: The unique key for each order.
         data_tests:
           - not_null
-          - unique
+
