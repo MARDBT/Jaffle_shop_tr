@@ -43,3 +43,8 @@ models:
       +persist_docs:
         relation: true
         cloumns: true
+
+#Se podría añadir configuraciones genericas para todos los test del proyecto
+#test:
+#  jaffle_shop:
+#    +severity: warn
