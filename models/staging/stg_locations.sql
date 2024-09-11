@@ -23,7 +23,7 @@ renamed as (
         {{ dbt.date_trunc('day', 'opened_at') }} as opened_date
 
     from source
-
 )
+--TEST CI JOBS
 
 select * from renamed
