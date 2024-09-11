@@ -7,7 +7,11 @@
 
     {%- elif env_var('DBT_MY_ENV','') == 'prod' -%}
 
-       {{ custom_schema_name | trim }}
+       PRO_{{ custom_schema_name | trim }}
+
+    {%- elif env_var('DBT_MY_ENV','') == 'qa' -%}
+
+       DEV_{{ custom_schema_name | trim }}
 
     {%- elif env_var('DBT_MY_ENV','') == 'core' -%}
     
